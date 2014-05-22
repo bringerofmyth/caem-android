@@ -7,5 +7,10 @@
     <string name="attenderText">Attender</string>
     <string name="eventownerText">Event Owner</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_welcome_screen">WelcomeScreenActivity</string>
+    <string name="title_activity_places">PlacesActivity</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="title_activity_notifications">NotificationsActivity</string>
+    <string name="title_activity_user_locations">UserLocationsActivity</string>
 
 </resources>

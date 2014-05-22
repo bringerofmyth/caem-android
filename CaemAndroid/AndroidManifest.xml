@@ -26,6 +26,26 @@
             android:name="caemandroid.activities.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
+        <activity
+            android:name="caemandroid.activities.WelcomeScreenActivity"
+            android:label="@string/title_activity_welcome_screen" >
+        </activity>
+        <activity
+            android:name="caemandroid.activities.PlacesActivity"
+            android:label="@string/title_activity_places" >
+        </activity>
+        <activity
+            android:name="caemandroid.activities.EventsActivity"
+            android:label="@string/title_activity_events" >
+        </activity>
+        <activity
+            android:name="caemandroid.activities.NotificationsActivity"
+            android:label="@string/title_activity_notifications" >
+        </activity>
+        <activity
+            android:name="caemandroid.activities.UserLocationsActivity"
+            android:label="@string/title_activity_user_locations" >
+        </activity>
     </application>
 
 </manifest>
