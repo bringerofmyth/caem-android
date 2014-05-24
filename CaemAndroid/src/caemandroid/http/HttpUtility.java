@@ -37,7 +37,8 @@ import android.widget.Toast;
 public class HttpUtility {
 
 	public static String POST_USER_URL = "";
-
+	public static String PostRegisterUser ="";
+	
 	public static JSONObject passedJson = null;
 	public static JSONArray passedHotels = null;
 	public static String ReservationUrl = "";
