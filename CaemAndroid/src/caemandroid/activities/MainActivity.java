@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 			Toast.makeText(this, "Please fill all fields.",Toast.LENGTH_SHORT ).show();
 		}
 		else{
-			new loginAsyncTask("Yükleniyor").execute();
+			new loginAsyncTask(HttpUtility.WaitMessage).execute();
 		}
 		
 	}

@@ -46,6 +46,10 @@
             android:name="caemandroid.activities.UserLocationsActivity"
             android:label="@string/title_activity_user_locations" >
         </activity>
+        <activity
+            android:name="caemandroid.activities.PlaceDetailActivity"
+            android:label="@string/title_activity_place_detail" >
+        </activity>
     </application>
 
 </manifest>

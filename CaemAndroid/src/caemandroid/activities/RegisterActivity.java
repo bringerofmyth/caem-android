@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import caemandroid.http.HttpUtility;
 
 import com.example.caemandroid.R;
@@ -56,7 +57,7 @@ public class RegisterActivity extends Activity {
 	     	        	HttpUtility.toastMessage(RegisterActivity.this,"Please fill username and password!");
 	     	        }
 	            	 else{
-	            		 
+	            		 new registerAsyncTask(HttpUtility.WaitMessage).execute();
 	            	 }
 	            }
 	        });

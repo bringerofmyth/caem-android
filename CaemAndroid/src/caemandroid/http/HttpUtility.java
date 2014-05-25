@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -37,8 +38,9 @@ import android.widget.Toast;
 public class HttpUtility {
 
 	public static String POST_USER_URL = "";
+	public static String GET_PLACE_URL = "";
 	public static String PostRegisterUser ="";
-	
+	public static String WaitMessage ="Please wait...";
 	public static JSONObject passedJson = null;
 	public static JSONArray passedHotels = null;
 	public static String ReservationUrl = "";
