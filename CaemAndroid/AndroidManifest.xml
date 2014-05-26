@@ -50,6 +50,10 @@
             android:name="caemandroid.activities.PlaceDetailActivity"
             android:label="@string/title_activity_place_detail" >
         </activity>
+        <activity
+            android:name="caemandroid.activities.EventDetailActivity"
+            android:label="@string/title_activity_event_detail" >
+        </activity>
     </application>
 
 </manifest>

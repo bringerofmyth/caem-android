@@ -176,6 +176,29 @@ public class HttpUtility {
 		}
 		return json;
 	}
+	
+	public static Place parsePlace (JSONObject jPlace){
+		try {
+			if(jPlace == null || isNullOrEmpty(jPlace.getString("Id"))){
+				return null;
+			}
+			else{
+				Place newPlace = new Place();
+				newPlace.setName(jPlace.getString("Name"));
+				newPlace.setAddress(jPlace.getString("Address"));
+				newPlace.setDescription(jPlace.getString("Description"));
+				newPlace.setOpenHours(jPlace.getString("OpenHours"));
+				newPlace.setPhone(jPlace.getString("Phone"));
+				return newPlace;
+
+				
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	private static String convertStreamToString(InputStream is) {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));

@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import caemandroid.entity.Place;
 import caemandroid.http.HttpUtility;
 
 import com.example.caemandroid.R;
@@ -19,17 +20,27 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.view.Menu;
+import android.widget.EditText;
 
 public class PlaceDetailActivity extends Activity {
 
 	private JSONObject jsonObject;
 	private String placeId = "";
+	private EditText name, address, desc, openHours, phone;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_place_detail);
+		name = (EditText) findViewById(R.id.pdNameText);
+		address = (EditText) findViewById(R.id.pdAddressText);
+		desc = (EditText) findViewById(R.id.pdDescriptionText);
+		openHours = (EditText) findViewById(R.id.pdOpenHoursText);
+		phone = (EditText) findViewById(R.id.pdPhoneText);
+
+		
 		placeId = getIntent().getStringExtra("Id");
 		requestPlace();
+		
 	}
 
 	@Override
@@ -46,7 +57,17 @@ public class PlaceDetailActivity extends Activity {
 			finish();
 		}
 		else{
-			
+			new placeAsyncTask(HttpUtility.WaitMessage).execute();
+			Place p = HttpUtility.parsePlace(jsonObject);
+			if(p !=null) {
+				name.setText(p.getName());
+				address.setText(p.getAddress());
+				desc.setText(p.getDescription());
+				phone.setText(p.getPhone());
+				openHours.setText(p.getOpenHours());
+				
+			}
+
 		}
 	}
 	
@@ -60,6 +81,7 @@ public class PlaceDetailActivity extends Activity {
             this.dialog = new ProgressDialog(PlaceDetailActivity.this);
         }
 
+        
         @Override
         protected void onPreExecute() {
         	
@@ -74,7 +96,7 @@ public class PlaceDetailActivity extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			
-			HttpUtility.createGetRequest(HttpUtility.GET_PLACE_URL, pairs);
+			jsonObject = HttpUtility.createGetRequest(HttpUtility.GET_PLACE_URL, pairs);
 			return null;
 		}
 		 @Override
@@ -87,10 +109,12 @@ public class PlaceDetailActivity extends Activity {
 	            	if(jsonObject !=null && !HttpUtility.isNullOrEmpty(jsonObject.getString("Name"))){
 	            		HttpUtility.passedJson = jsonObject;
 	            	
-		            	return;
 	            	}
-	            	HttpUtility.toastMessage(PlaceDetailActivity.this, "No place found.");
-	            	finish();
+	            	else{
+		            	HttpUtility.toastMessage(PlaceDetailActivity.this, "No place found.");
+		            	finish();
+	            	}
+
 	            	
 	               // String id = jsonObject.getString("Telefon").toString();
 	              
